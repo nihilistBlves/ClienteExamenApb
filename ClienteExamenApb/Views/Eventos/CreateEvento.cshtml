@@ -1,0 +1,48 @@
+﻿@model ClienteExamenApb.Models.Evento
+
+@{
+    ViewData["Title"] = "CreateEvento";
+    List<Categoria> categorias = (List<Categoria>)ViewData["CATEGORIAS"];
+}
+
+<h1>CreateEvento</h1>
+
+<h4>Evento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateEvento">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="IdEvento" hidden value="1" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artista" class="control-label"></label>
+                <input asp-for="Artista" class="form-control" />
+                <span asp-validation-for="Artista" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Categoria</label>
+                <select asp-for="IdCategoria" class="form-control-sm">
+                    @foreach (Categoria categoria in categorias) {
+                        <option value="@categoria.IdCategoria">@categoria.Nombre</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear evento" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Eventos" asp-action="Eventos" class="btn btn-secondary">Volver a Eventos</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

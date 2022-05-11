@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ClienteExamenApb.Models.Evento>
+
+@{
+    ViewData["Title"] = "EventosByCategoria";
+    Categoria categoria = (Categoria)ViewData["CATEGORIA"];
+}
+
+<h1>Eventos de categoria: @categoria.Nombre</h1>
+
+<p>
+    <a asp-action="CreateEvento">Crear evento</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Artista)
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Artista)
+            </td>
+            <td>
+                @categoria.Nombre
+            </td>
+            <td>
+                <a asp-action="UpdateEventoCategoria" asp-route-idevento="@item.IdEvento" class="btn btn-primary">Cambiar categoria</a>
+                <a asp-action="DetailsEvento" asp-route-id="@item.IdEvento" class="btn btn-success">Detalles</a>
+                <a asp-action="DeleteEvento" asp-route-id="@item.IdEvento" class="btn btn-danger">Eliminar evento</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

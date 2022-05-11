@@ -1,0 +1,20 @@
+
+{
+    "region" : "us-east-1",
+    "configuration" : "Debug",
+    "framework"     : "net5.0",
+    "self-contained" : false,
+    "application"    : "ClienteExamenApb",
+    "environment"    : "ClienteExamenApb-dev",
+    "enable-xray"    : false,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-0526d7710307813fa\";\"aws:ec2:vpc,Subnets\"=\"subnet-087197996330d9cd2\"",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.3.1 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "clienteexamenapb-dev",
+    "instance-type"        : "t1.micro",
+    "key-pair"             : "bash-bootstrap-keys",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}

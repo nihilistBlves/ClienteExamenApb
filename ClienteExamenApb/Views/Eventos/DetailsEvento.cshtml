@@ -1,0 +1,43 @@
+﻿@model ClienteExamenApb.Models.Evento
+
+@{
+    ViewData["Title"] = "DetailsEvento";
+    Categoria categoria = (Categoria)ViewData["CATEGORIA"];
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Evento</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEvento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdEvento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Artista)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Artista)
+        </dd>
+        <dt class = "col-sm-2">
+            Categoria
+        </dt>
+        <dd class = "col-sm-10">
+            @categoria.Nombre
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="UpdateEventoCategoria" asp-route-idevento="@Model.IdEvento" class="btn btn-primary">Cambiar categoria</a>
+    <a asp-action="Eventos" class="btn btn-secondary">Volver a Eventos</a>
+</div>
